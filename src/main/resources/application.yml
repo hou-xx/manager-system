@@ -1,0 +1,12 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db4free.net:3306/manager_system?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: manager1314
+    password: 12345678
+
+mybatis:
+  type-aliases-package: com.zero.system.entity
+  mapper-locations: classpath:mapper/*.xml
