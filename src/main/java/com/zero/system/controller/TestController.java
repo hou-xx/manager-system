@@ -5,12 +5,15 @@ import com.zero.system.service.RoleService;
 import com.zero.system.util.AjaxResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +34,26 @@ public class TestController {
 
     @Autowired
     private ReloadSecuritySource reloadSecuritySource;
+
+
+
+    @GetMapping("/demo")
+    public ResponseEntity<InputStreamResource> demo(){
+        //读取文件
+        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("attachment/demo.txt");
+        //可以添加请求头附件响应内容类型、文件名、大小之类的参数
+        return ResponseEntity
+                .ok()
+                .body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/sample")
+    public String sample(){
+        return "manager/sample.txt";
+    }
+
+
+
 
     @GetMapping("/test")
     public String role(){
