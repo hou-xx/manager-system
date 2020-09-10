@@ -1,6 +1,6 @@
+var itemIds = [];
 layui.use(['jquery'], function () {
     var $ = layui.jquery;
-    var itemIds = [];
     //一般请求后端接口拿到数据 这里只是演示
     var initData = [{"name": "张三", "msg": "今天心情很好"}, {"name": "李四", "msg": "不太开心"}];
     initData.forEach(function (value) {
@@ -16,10 +16,14 @@ layui.use(['jquery'], function () {
     $("#add-btn").click(function () {
         var id = createRandom();
         itemIds.push("#" + id);
-        $("#container").append(buildItem(nameList[parseInt(nameList.length * Math.random())],
+        $("#container").append(buildItem(
+            nameList[parseInt(nameList.length * Math.random())],
             msgList[parseInt(msgList.length * Math.random())]
             , id
         ));
+    });
+    $("#del-btn").click(function () {
+        $(itemIds.pop()).remove();
     });
 });
 
