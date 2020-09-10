@@ -1,7 +1,5 @@
 package com.zero.system.controller;
 
-import com.zero.system.config.ReloadSecuritySource;
-import com.zero.system.service.RoleService;
 import com.zero.system.util.AjaxResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +27,11 @@ public class TestController {
 
     @Autowired
     private AjaxResult ajaxResult;
-    @Autowired
-    private RoleService roleService;
 
-    @Autowired
-    private ReloadSecuritySource reloadSecuritySource;
-
+    @GetMapping("/list")
+    public String list(){
+        return "manager/list/list.html";
+    }
 
 
     @GetMapping("/demo")

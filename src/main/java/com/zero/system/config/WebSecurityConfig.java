@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/manager/test/**").permitAll()
                 .antMatchers("/manager/**").permitAll()
                 .antMatchers("/manager/login").permitAll()
-                .antMatchers("/mystatic/**","/layuiadmin/**","/font-awesome-4.7.0/**","/js/**").permitAll()
+                .antMatchers("/mystatic/**","/layuiadmin/**","/font-awesome-4.7.0/**","/js/**","/css/**").permitAll()
                 //.antMatchers("/**")
                 //.fullyAuthenticated()
                 .anyRequest().access("@rbacConfig.hasPermission(request,authentication)")
