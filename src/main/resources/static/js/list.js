@@ -1,4 +1,4 @@
-var itemIds = [];
+var itemIds = [];//记录添加元素的id 用于删除
 layui.use(['jquery'], function () {
     var $ = layui.jquery;
     //一般请求后端接口拿到数据 这里只是演示
@@ -13,6 +13,7 @@ layui.use(['jquery'], function () {
     //演示动态添加dom元素
     var nameList = ["王二", "麻子", "张雪", "赵四", "爱新觉罗", "溥仪"];
     var msgList = ["十年生死两茫茫", "不思量", "自难忘", "千里孤坟", "无处话凄凉", "天黑了"];
+    //添加元素按钮 附加点击事件
     $("#add-btn").click(function () {
         var id = createRandom();
         itemIds.push("#" + id);
@@ -22,6 +23,7 @@ layui.use(['jquery'], function () {
             , id
         ));
     });
+    //删除元素按钮 附加点击事件
     $("#del-btn").click(function () {
         $(itemIds.pop()).remove();
     });
